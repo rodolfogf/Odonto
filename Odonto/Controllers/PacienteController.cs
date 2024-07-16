@@ -18,9 +18,9 @@ namespace Odonto.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Paciente> RetornaPacientes()
+        public IEnumerable<Paciente> RetornaPacientes([FromQuery] int skip = 0,[FromQuery] int take = 10)
         {
-            return pacientes;
+            return pacientes.Skip(skip).Take(take);
         }
 
         [HttpGet("{id}")]
