@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Odonto.Models;
 
-namespace Odonto.Data
+namespace Odonto.Data;
+
+public class PacienteContext : DbContext
 {
-    public class PacienteContext : DbContext
+    public PacienteContext(DbContextOptions<PacienteContext> opts) : base(opts)
     {
-        public PacienteContext(DbContextOptions<PacienteContext> opts) : base(opts)
-        {
-            
-        }
-        public DbSet<Paciente> Pacientes { get; set; }
+        
     }
+    public DbSet<Paciente> Pacientes { get; set; }
 }

@@ -7,51 +7,50 @@ using Odonto.Data;
 
 #nullable disable
 
-namespace Odonto.Migrations
+namespace Odonto.Migrations;
+
+[DbContext(typeof(PacienteContext))]
+partial class PacienteContextModelSnapshot : ModelSnapshot
 {
-    [DbContext(typeof(PacienteContext))]
-    partial class PacienteContextModelSnapshot : ModelSnapshot
+    protected override void BuildModel(ModelBuilder modelBuilder)
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.32")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+        modelBuilder
+            .HasAnnotation("ProductVersion", "6.0.32")
+            .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Odonto.Models.Paciente", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+        modelBuilder.Entity("Odonto.Models.Paciente", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    b.Property<string>("Cep")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Cep")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime(6)");
+                b.Property<DateTime>("DataNascimento")
+                    .HasColumnType("datetime(6)");
 
-                    b.Property<int>("Genero")
-                        .HasColumnType("int");
+                b.Property<int>("Genero")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
+                b.Property<string>("Nome")
+                    .IsRequired()
+                    .HasMaxLength(60)
+                    .HasColumnType("varchar(60)");
 
-                    b.Property<bool>("Pcd")
-                        .HasColumnType("tinyint(1)");
+                b.Property<bool>("Pcd")
+                    .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                b.Property<string>("Telefone")
+                    .IsRequired()
+                    .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Pacientes");
-                });
+                b.ToTable("Pacientes");
+            });
 #pragma warning restore 612, 618
-        }
     }
 }
