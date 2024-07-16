@@ -4,6 +4,7 @@ namespace Odonto.Models;
 
 public class Paciente
 {
+    public int Id { get; set; }
     [Required(ErrorMessage = "O nome do paciente é obrigatório")]
     [MaxLength(60)]
     public string Nome { get; set; }
@@ -19,9 +20,9 @@ public class Paciente
     public string Telefone { get; set; }
     [RegularExpression(@"^\d{8}$", ErrorMessage = "Formato inválido de CEP")]
     public string Cep { get; set; }
-    [EmailAddress]
+    /*[EmailAddress]
     public string Email { get; set; }
-    /*public string Cidade { get; set; }
+    public string Cidade { get; set; }
     public string Estado { get; set; }
     public string Logradouro { get; set; }
     public string Numero { get; set; }
