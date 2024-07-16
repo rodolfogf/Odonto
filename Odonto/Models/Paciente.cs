@@ -4,6 +4,8 @@ namespace Odonto.Models;
 
 public class Paciente
 {
+    [Key]
+    [Required]
     public int Id { get; set; }
     [Required(ErrorMessage = "O nome do paciente é obrigatório")]
     [MaxLength(60)]

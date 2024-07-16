@@ -1,4 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Odonto.Data;
+using Odonto.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("OdontoConnection");
+
+builder.Services.AddDbContext<PacienteContext>(opts => opts.UseMySql(
+    connectionString, 
+    ServerVersion.AutoDetect(connectionString)));
 
 // Add services to the container.
 
