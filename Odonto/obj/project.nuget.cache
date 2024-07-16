@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "JYrzKKs72V2uuVCdLjCtr02kWChtbN5LWTWaGiMYf7mGXCpNETZRhx9+8d7+mRbPyIUFkddQRsXcn2YQcQFViQ==",
+  "dgSpecHash": "Pt00k2RYliAvPA7hY/1msvuYO+ZA8SWcglO0rJB38DcdyD2vWQk5eg0Z4Cz3yLsL+wH/5f21gOaWZzbdwpHHMg==",
   "success": true,
   "projectFilePath": "C:\\_Dev\\Projetos\\DotNet\\Odonto\\Odonto\\Odonto.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\rodol\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\rodol\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rodol\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.32\\microsoft.entityframeworkcore.6.0.32.nupkg.sha512",
     "C:\\Users\\rodol\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.32\\microsoft.entityframeworkcore.abstractions.6.0.32.nupkg.sha512",

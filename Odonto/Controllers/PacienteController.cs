@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Odonto.Data;
+using Odonto.Data.Dtos;
 using Odonto.Models;
 
 namespace Odonto.Controllers
@@ -10,14 +12,17 @@ namespace Odonto.Controllers
     {
 
         private PacienteContext _context;
-        public PacienteController(PacienteContext context)
+        private IMapper _mapper;
+        public PacienteController(PacienteContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpPost]
-        public IActionResult AdicionaPaciente([FromBody] Paciente paciente)
+        public IActionResult AdicionaPaciente([FromBody] CreatePacienteDto pacienteDto)
         {
+                Paciente paciente = _mapper.Map<Paciente>(pacienteDto);
                 _context.Pacientes.Add(paciente);
                 _context.SaveChanges();
                 return CreatedAtAction(

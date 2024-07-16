@@ -40,3 +40,4 @@ C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\Microsoft.Extensions.Depe
 C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\MySqlConnector.dll
 C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\AutoMapper.dll
