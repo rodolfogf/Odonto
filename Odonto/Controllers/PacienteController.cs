@@ -10,11 +10,13 @@ namespace Odonto.Controllers
         private static List<Paciente> pacientes = new List<Paciente>();
         private static int id = 0;
         [HttpPost]
-        public void AdicionaPaciente([FromBody] Paciente paciente)
+        public IActionResult AdicionaPaciente([FromBody] Paciente paciente)
         {
             paciente.Id = id++;
             pacientes.Add(paciente);
-            Console.WriteLine(paciente.Nome);
+            return CreatedAtAction(nameof(RetornaParcientePorId), 
+                new {id = paciente.Id}, 
+                paciente);
         }
 
         [HttpGet]
@@ -24,9 +26,11 @@ namespace Odonto.Controllers
         }
 
         [HttpGet("{id}")]
-        public Paciente? RetornaParcientePorId(int id)
+        public IActionResult? RetornaParcientePorId(int id)
         {
-            return pacientes.FirstOrDefault(p => p.Id == id);
+            var paciente = pacientes.FirstOrDefault(p => p.Id == id);
+            if (paciente == null) return NotFound();
+            return Ok(paciente);
         }
 
     }
