@@ -9,6 +9,7 @@ namespace Odonto.Profiles
         public PacienteProfile() 
         {
             CreateMap<CreatePacienteDto, Paciente>();
+            CreateMap<UpdatePacienteDto, Paciente>();
         }
     }
 }

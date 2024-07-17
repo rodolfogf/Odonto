@@ -22,18 +22,18 @@ namespace Odonto.Controllers
         [HttpPost]
         public IActionResult AdicionaPaciente([FromBody] CreatePacienteDto pacienteDto)
         {
-                Paciente paciente = _mapper.Map<Paciente>(pacienteDto);
-                _context.Pacientes.Add(paciente);
-                _context.SaveChanges();
-                return CreatedAtAction(
-                    nameof(RetornaParcientePorId), 
-                    new {id = paciente.Id}, 
-                    paciente);
-                
+            Paciente paciente = _mapper.Map<Paciente>(pacienteDto);
+            _context.Pacientes.Add(paciente);
+            _context.SaveChanges();
+            return CreatedAtAction(
+                nameof(RetornaParcientePorId),
+                new { id = paciente.Id },
+                paciente);
+
         }
 
         [HttpGet]
-        public IEnumerable<Paciente> RetornaPacientes([FromQuery] int skip = 0,[FromQuery] int take = 10)
+        public IEnumerable<Paciente> RetornaPacientes([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
             return _context.Pacientes.Skip(skip).Take(take);
         }
@@ -44,6 +44,17 @@ namespace Odonto.Controllers
             var paciente = _context.Pacientes.FirstOrDefault(p => p.Id == id);
             if (paciente == null) return NotFound();
             return Ok(paciente);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizaPaciente(int id, [FromBody] UpdatePacienteDto pacienteDto)
+        {
+            var paciente = _context.Pacientes.FirstOrDefault(p => p.Id == id);
+            if (paciente == null) return NotFound();
+            _mapper.Map(pacienteDto, paciente);
+            _context.SaveChanges();
+
+            return NoContent();            
         }
 
     }
