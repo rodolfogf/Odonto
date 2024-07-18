@@ -41,3 +41,7 @@ C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\MySqlConnector.dll
 C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\AutoMapper.dll
+C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\_Dev\Projetos\DotNet\Odonto\Odonto\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

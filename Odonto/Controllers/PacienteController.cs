@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Odonto.Data;
 using Odonto.Data.Dtos;
@@ -52,6 +53,23 @@ namespace Odonto.Controllers
             var paciente = _context.Pacientes.FirstOrDefault(p => p.Id == id);
             if (paciente == null) return NotFound();
             _mapper.Map(pacienteDto, paciente);
+            _context.SaveChanges();
+
+            return NoContent();            
+        }
+        
+        [HttpPatch("{id}")]
+        public IActionResult AtualizaPacienteParcial(int id, JsonPatchDocument<UpdatePacienteDto> patch)
+        {
+            var paciente = _context.Pacientes.FirstOrDefault(p => p.Id == id);
+            if (paciente == null) return NotFound();
+
+            var pacienteAtualizacao = _mapper.Map<UpdatePacienteDto>(paciente);
+            patch.ApplyTo(pacienteAtualizacao, ModelState);
+
+            if (!TryValidateModel(pacienteAtualizacao)) return ValidationProblem(ModelState);
+           
+            _mapper.Map(pacienteAtualizacao, paciente);
             _context.SaveChanges();
 
             return NoContent();            
