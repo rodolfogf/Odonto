@@ -12,9 +12,9 @@ namespace Odonto.Controllers
     public class PacienteController : ControllerBase
     {
 
-        private PacienteContext _context;
+        private OdontoContext _context;
         private IMapper _mapper;
-        public PacienteController(PacienteContext context, IMapper mapper)
+        public PacienteController(OdontoContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -34,9 +34,9 @@ namespace Odonto.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Paciente> RetornaPacientes([FromQuery] int skip = 0, [FromQuery] int take = 10)
+        public IEnumerable<ReadPacienteDto> RetornaPacientes([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
-            return _context.Pacientes.Skip(skip).Take(take);
+            return _mapper.Map<List<ReadPacienteDto>>(_context.Pacientes.Skip(skip).Take(take));
         }
 
         [HttpGet("{id}")]
@@ -44,7 +44,8 @@ namespace Odonto.Controllers
         {
             var paciente = _context.Pacientes.FirstOrDefault(p => p.Id == id);
             if (paciente == null) return NotFound();
-            return Ok(paciente);
+            var pacienteDto = _mapper.Map<ReadPacienteDto>(paciente);
+            return Ok(pacienteDto);
         }
 
         [HttpPut("{id}")]
@@ -73,6 +74,18 @@ namespace Odonto.Controllers
             _context.SaveChanges();
 
             return NoContent();            
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeletaPaciente(int id)
+        {
+            var paciente = _context.Pacientes.FirstOrDefault(p => p.Id == id);
+            if (paciente == null) return NotFound();
+
+            _context.Remove(paciente);
+            _context.SaveChanges();
+
+            return NoContent();
         }
 
     }

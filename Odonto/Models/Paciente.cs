@@ -22,6 +22,7 @@ public class Paciente
     public string Telefone { get; set; }
     [RegularExpression(@"^\d{8}$", ErrorMessage = "Formato inválido de CEP")]
     public string Cep { get; set; }
+    public virtual ICollection<Tratamento> Tratamentos { get; set; }
     /*[EmailAddress]
     public string Email { get; set; }
     public string Cidade { get; set; }
