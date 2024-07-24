@@ -46,8 +46,10 @@ namespace Odonto.Controllers
         {
             var tratamento = _context.Tratamentos.FirstOrDefault(t => t.Id == id);
             if (tratamento == null) return NotFound();
-
-            return Ok(tratamento);
+            
+            ReadTratamentoDto tratamentoDto = _mapper.Map<ReadTratamentoDto>(tratamento);
+            return Ok(tratamentoDto);
+            
         }
 
         [HttpPatch]
