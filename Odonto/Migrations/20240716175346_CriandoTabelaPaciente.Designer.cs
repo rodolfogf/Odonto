@@ -10,7 +10,7 @@ using Odonto.Data;
 
 namespace Odonto.Migrations
 {
-    [DbContext(typeof(PacienteContext))]
+    [DbContext(typeof(OdontoContext))]
     [Migration("20240716175346_CriandoTabelaPaciente")]
     partial class CriandoTabelaPaciente
     {
